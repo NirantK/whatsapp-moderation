@@ -17,6 +17,10 @@ dependencies = [
 ]
 requires-python = ">=3.12"
 
+[project.scripts]
+whatsapp-analyzer = "src.cli.main:cli"
+whatsapp-web = "src.web.main:app"
+
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"

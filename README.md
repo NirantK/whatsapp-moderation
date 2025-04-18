@@ -11,6 +11,8 @@ A tool for analyzing WhatsApp group chat exports. It supports both single group 
 - Support for excluding contacts (users with names starting with '~')
 - Comprehensive logging and progress tracking
 - Activity scoring with exponential decay to identify formerly active members
+- Web interface for easy analysis
+- Command-line interface for batch processing
 
 ## Installation
 
@@ -32,32 +34,20 @@ uv pip install -e .
 
 ## Usage
 
-### Single Group Analysis
+### Command Line Interface
+
+The tool provides a command-line interface for analyzing WhatsApp chats:
 
 ```bash
-python whatsapp_analyzer.py analyze-single path/to/chat.txt --output results.csv
+# Analyze a single chat
+whatsapp-analyzer analyze-single path/to/chat.txt --output results.csv
+
+# Analyze multiple chats in a directory
+whatsapp-analyzer analyze-multiple path/to/groups/ --output combined_results.csv
+
+# Calculate activity scores for inactive users
+whatsapp-analyzer score-inactive path/to/chat.txt --output scored_users.csv
 ```
-
-Options:
-- `--output`, `-o`: Save results to a CSV file
-- `--window-days`, `-w`: Number of days to consider for inactivity (default: 60)
-- `--exclude-contacts`: Exclude contacts (users with names starting with '~')
-
-### Multiple Group Analysis
-
-```bash
-python whatsapp_analyzer.py analyze-multiple path/to/groups/ --output combined_results.csv
-```
-
-The script will process all `.txt` files in the specified directory as WhatsApp chat exports.
-
-### Activity Scoring for Inactive Users
-
-```bash
-python whatsapp_analyzer.py score-inactive path/to/chat.txt --output scored_users.csv
-```
-
-This command calculates an exponential decay activity score for inactive users, helping you identify formerly active members who might be worth re-activating.
 
 Options:
 - `--output`, `-o`: Save results to a CSV file
@@ -66,12 +56,20 @@ Options:
 - `--decay-days`, `-d`: Number of days for score to decay to zero (default: 90)
 - `--reference-messages`, `-r`: Number of messages that would give a score of 1.0 (default: 5)
 
-The output CSV includes all the standard columns plus:
-- `Days_Since_Last_Message`: Number of days since the user's last message
-- `Base_Score`: Raw score based on total messages sent
-- `Activity_Score`: Final score with exponential decay applied
+### Web Interface
 
-The results are sorted by `Activity_Score` in ascending order (lowest to highest), so the least promising users to re-activate appear at the top of the list.
+The tool also provides a web interface for easy analysis:
+
+```bash
+# Start the web server
+whatsapp-web
+```
+
+Then open your browser and navigate to `http://localhost:8000`. The web interface allows you to:
+- Upload WhatsApp chat exports
+- Configure analysis parameters
+- View results in a table format
+- Download results as CSV files
 
 ## Development
 
@@ -79,8 +77,38 @@ The results are sorted by `Activity_Score` in ascending order (lowest to highest
 - Lint code: `ruff check .`
 - Fix linting issues: `ruff check . --fix`
 
+## Project Structure
+
+```
+whatsapp-analyzer/
+├── src/
+│   ├── core/           # Core functionality
+│   │   ├── analysis.py # WhatsApp group analysis
+│   │   ├── models.py   # Data models
+│   │   └── utils.py    # Utility functions
+│   ├── cli/            # Command-line interface
+│   │   └── main.py     # CLI entry point
+│   └── web/            # Web interface
+│       ├── static/     # Static files (CSS)
+│       └── main.py     # Web app entry point
+├── tests/              # Test files
+├── pyproject.toml      # Project configuration
+└── README.md          # This file
+```
+
 ## TODO
 
+### Repository Reorganization
+- [x] Create a central `src` directory for core functionality
+- [x] Move core WhatsApp analysis logic to `src/core`
+- [x] Create CLI interface in `src/cli`
+- [x] Move web app to `src/web`
+- [x] Update imports and dependencies
+- [x] Update documentation
+- [x] Add proper package structure with `__init__.py` files
+- [x] Update deployment configurations
+
+### Feature TODOs
 - [ ] Add support for more WhatsApp export formats
 - [ ] Implement message content analysis
 - [ ] Add visualization capabilities

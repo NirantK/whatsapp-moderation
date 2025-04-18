@@ -1,0 +1,233 @@
+/* Reset and Base Styles */
+body {
+    background-color: #1a1e24 !important;
+    color: #e9ecef !important;
+    padding: 2rem !important;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+}
+
+.container {
+    max-width: 1200px !important;
+    margin: 2rem auto !important;
+    padding: 2rem !important;
+    background-color: #242931 !important;
+    border-radius: 12px !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Form Styles */
+.form-group {
+    margin-bottom: 1.5rem !important;
+}
+
+.form-group label {
+    display: block !important;
+    margin-bottom: 0.75rem !important;
+    font-weight: 500 !important;
+    color: #e9ecef !important;
+}
+
+.form-group input[type="file"],
+.form-group input[type="number"],
+.form-group select {
+    display: block !important;
+    width: 100% !important;
+    padding: 0.75rem !important;
+    border: 2px solid #3a4149 !important;
+    border-radius: 8px !important;
+    background-color: #2a303c !important;
+    color: #e9ecef !important;
+    transition: all 0.2s ease !important;
+}
+
+.form-group input[type="file"]:focus,
+.form-group input[type="number"]:focus,
+.form-group select:focus {
+    border-color: #3498db !important;
+    outline: none !important;
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2) !important;
+}
+
+.form-group input[type="checkbox"] {
+    margin-top: 0.5rem !important;
+    transform: scale(1.2) !important;
+    accent-color: #3498db !important;
+}
+
+/* Button Styles - Modern & Consistent */
+.button-primary,
+button[type="submit"],
+a.button-secondary {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.75rem !important;
+    padding: 0.875rem 1.75rem !important;
+    border: none !important;
+    border-radius: 10px !important;
+    cursor: pointer !important;
+    font-size: 1rem !important;
+    font-weight: 600 !important;
+    text-decoration: none !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+    letter-spacing: 0.025em !important;
+}
+
+/* Style for the main form submit button */
+.button-primary,
+button[type="submit"] {
+    background: linear-gradient(135deg, #3498db, #2980b9) !important;
+    color: white !important;
+}
+
+/* Base style for secondary buttons (anchor tags) */
+a.button-secondary {
+    background: linear-gradient(135deg, #4a5568, #2d3748) !important;
+    color: white !important;
+}
+
+/* Specific background colors for download/back buttons */
+a.download-button {
+    background: linear-gradient(135deg, #2ecc71, #27ae60) !important;
+    color: white !important;
+}
+
+a.back-button {
+    background: linear-gradient(135deg, #f1c40f, #f39c12) !important;
+    color: #2c3e50 !important;
+}
+
+/* Hover states with scale and glow effect */
+.button-primary:hover,
+button[type="submit"]:hover,
+a.button-secondary:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15) !important;
+}
+
+.button-primary:hover,
+button[type="submit"]:hover {
+    background: linear-gradient(135deg, #2980b9, #2472a4) !important;
+}
+
+a.button-secondary:hover {
+    background: linear-gradient(135deg, #2d3748, #1a202c) !important;
+}
+
+a.download-button:hover {
+    background: linear-gradient(135deg, #27ae60, #219a52) !important;
+}
+
+a.back-button:hover {
+    background: linear-gradient(135deg, #f39c12, #e67e22) !important;
+}
+
+/* Active/pressed state */
+.button-primary:active,
+button[type="submit"]:active,
+a.button-secondary:active {
+    transform: translateY(0) !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Styles for icons and text within buttons */
+.button-icon {
+    font-size: 1.25rem !important;
+    line-height: 1 !important;
+}
+
+.button-text {
+    font-size: 1rem !important;
+    line-height: 1 !important;
+    font-weight: 600 !important;
+}
+
+.button-group {
+    margin: 1.5rem 0 !important;
+    display: flex !important;
+    justify-content: flex-start !important;
+    align-items: center !important;
+    gap: 1.25rem !important;
+    flex-wrap: wrap !important;
+}
+
+/* Table Styles */
+.table-container {
+    overflow-x: auto !important;
+    margin: 1.5rem 0 !important;
+    border: 1px solid #3a4149 !important;
+    border-radius: 8px !important;
+    background-color: #2a303c !important;
+}
+
+.table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    margin: 0 !important;
+}
+
+.table th,
+.table td {
+    padding: 1rem !important;
+    border: 1px solid #3a4149 !important;
+    text-align: left !important;
+    font-size: 0.95rem !important;
+    color: #e9ecef !important;
+}
+
+.table th {
+    background: #3a4149 !important;
+    font-weight: 600 !important;
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 1 !important;
+    white-space: nowrap !important;
+}
+
+.table tbody tr:nth-child(even) {
+    background-color: #2f353e !important;
+}
+
+.table tbody tr:hover {
+    background-color: #3a4149 !important;
+}
+
+/* Error Styles */
+.error {
+    color: #f8d7da !important;
+    background-color: #dc3545 !important;
+    border: 1px solid #f5c6cb !important;
+    padding: 1rem !important;
+    border-radius: 8px !important;
+    margin-bottom: 1rem !important;
+}
+
+/* Analysis Results Styles */
+.container h1,
+.container h2 {
+    color: #e9ecef !important;
+    margin-top: 0.5rem !important;
+    margin-bottom: 1.5rem !important;
+}
+
+.container p {
+    color: #e9ecef !important;
+    margin-bottom: 1.5rem !important;
+    font-size: 1.1rem !important;
+}
+
+/* Fix for file input */
+input[type="file"]::file-selector-button {
+    background-color: #3498db !important;
+    color: white !important;
+    padding: 0.5rem 1rem !important;
+    border: none !important;
+    border-radius: 4px !important;
+    cursor: pointer !important;
+    margin-right: 1rem !important;
+}
+
+input[type="file"]::file-selector-button:hover {
+    background-color: #2980b9 !important;
+}
