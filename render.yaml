@@ -2,8 +2,8 @@ services:
   - type: web
     name: whatsapp-analyzer
     env: python
-    buildCommand: pip install -e .
-    startCommand: python -m src.web.main
+    buildCommand: pip install -r requirements.txt
+    startCommand: python wsgi.py
     envVars:
       - key: PYTHON_VERSION
         value: 3.12.0
