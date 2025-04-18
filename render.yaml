@@ -2,8 +2,10 @@ services:
   - type: web
     name: whatsapp-analyzer
     env: python
-    buildCommand: pip install -r web_app/requirements.txt
-    startCommand: cd web_app && python main.py
+    buildCommand: pip install -e .
+    startCommand: python -m src.web.main
     envVars:
       - key: PYTHON_VERSION
-        value: 3.9.0 
+        value: 3.12.0
+      - key: PORT
+        value: 8000 
