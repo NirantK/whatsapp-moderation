@@ -1,7 +1,9 @@
+import sys
 from pathlib import Path
 from typing import Optional
 
 import click
+import pandas as pd
 from loguru import logger
 
 from src.core.analysis import WhatsAppGroupAnalysis
