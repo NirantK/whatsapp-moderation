@@ -9,6 +9,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - **Combined fix**: `make fix`
 - **Run tests**: `uv run pytest --cov=src`
 - **Run single test**: `uv run pytest tests/path_to_test.py::test_function_name -v`
+- **Run WhatsApp analyzer**: `python -m src.cli.main analyze-single /path/to/chat.txt --window-days 90`
+- **Save inactive users**: `python -m src.cli.main analyze-single /path/to/chat.txt --window-days 90 --output output.csv`
 
 ## Code Style Guidelines
 - **Imports**: Standard library first, third-party second, local imports last
@@ -24,3 +26,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Version Control
 - Make small, reversible commits with clear descriptions
 - Start with broad TODO sections in README.md for new features
+
+## Project Notes
+- The WhatsApp analyzer provides tools for identifying inactive users in WhatsApp groups
+- WhatsApp chat export files should be placed in `data/chat_text_files/` directory
+- Analysis supports various window sizes (e.g., 30, 60, 90 days) for inactivity detection
+- Output files use pipe-separated values format (CSV with `|` delimiter)
